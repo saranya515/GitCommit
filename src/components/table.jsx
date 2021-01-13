@@ -1,12 +1,13 @@
 import React from "react";
 
 const Table = (props) => {
-  let currentCommit = props.commits[0];
+  console.log(props);
+
   return (
     <table className="table">
       <thead>
         <tr>
-          <th>User</th>
+          <th> User</th>
           <th>Message</th>
           <th>Date</th>
           <th>Hash</th>
@@ -16,7 +17,7 @@ const Table = (props) => {
       <tbody>
         {props.commits.map((commitItem) => (
           <tr key={commitItem.node_id}>
-            <td>
+            <td onClick={() => props.showUserData(commitItem.author)}>
               <img
                 src={
                   commitItem.author === null
